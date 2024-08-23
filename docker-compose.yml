@@ -4,6 +4,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    env_file:
+      - resume/docker.env
+    volumes:
+      - .:/srv/app
     ports:
       - "8000:8000"
     command: python3 manage.py runserver 0.0.0.0:8000
+
+volumes:
+  static-data:
